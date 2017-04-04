@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import renderIf from './renderIf';
 import {
   AppRegistry,
   StyleSheet,
@@ -31,7 +32,7 @@ export default class HigherOrLower extends Component {
       this.setState({number: newNumber});
       this.state.score += 1;
     } else {
-      this.setState({number: "You're wrong, it was " + newNumber});
+      this.setState({number: "You're wrong. It was " + newNumber});
     }
   }
 
@@ -41,7 +42,7 @@ export default class HigherOrLower extends Component {
       this.setState({number: newNumber});
       this.state.score += 1;
     } else {
-      this.setState({number: "You're wrong, it was " + newNumber});
+      this.setState({number: "You're wrong. It was " + newNumber});
     }
   }
 
@@ -66,7 +67,8 @@ export default class HigherOrLower extends Component {
           <Button title="Higher" onPress={this.onHigherButtonPress.bind(this)}/>
           <Button title="Lower" onPress={this.onLowerButtonPress.bind(this)}/>
         </View>
-        <Text style={styles.score}>Your score: {this.state.score}
+        <Text style={styles.score}>
+          Your score: {this.state.score}
         </Text>
         <Button title="Reset" onPress={this.onResetButtonPress.bind(this)} />
       </View>
@@ -100,22 +102,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 40,
   },
-  button: {
-    textAlign: 'center',
-    fontSize: 40,
-    color: '#333333',
-    alignSelf: 'center'
-  },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     height: 50
-  },
-  touchable: {
-    backgroundColor: 'aliceblue',
-    marginTop: 5,
-    marginBottom: 5
   }
 });
 
